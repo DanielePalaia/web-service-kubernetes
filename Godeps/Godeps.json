@@ -1,0 +1,20 @@
+{
+	"ImportPath": "ricardo",
+	"GoVersion": "go1.11",
+	"GodepVersion": "v80",
+	"Packages": [
+		"."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/go-sql-driver/mysql",
+			"Comment": "v1.4.0-19-g1fbca2a",
+			"Rev": "1fbca2aabb09915d4f1006d01b271ad7778eec4f"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.6.2-15-gd2b5d13",
+			"Rev": "d2b5d13b9260193b5a5649e9f47fda645bd2bd1d"
+		}
+	]
+}

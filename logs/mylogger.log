@@ -1,0 +1,6 @@
+TodoService service.go:13: 2019-06-03 12:38:28.280354 +0000 UTC Starting service
+TodoService datastore.go:62: retriving all elements from collection
+TodoService datastore.go:37: connecting to the datastore
+TodoService datastore.go:44: 2019-06-03 12:38:32.362286 +0000 UTC root:my-secret-pw@tcp(172.17.0.2:3306)/tododatastore
+TodoService datastore.go:50: returning from connecting to the datastore
+TodoService datastore.go:67: before defferring
