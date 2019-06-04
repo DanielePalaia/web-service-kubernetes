@@ -1,5 +1,5 @@
-USERNAME:root
-PASSWD:my-secret-pw
+USERNAME:daniele
+PASSWD:daniele
 HOST:172.17.0.2
 DATABASE:tododatastore
 PORT:3306
