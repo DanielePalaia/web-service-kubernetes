@@ -1,14 +1,23 @@
-# cf-mysql-example
-Sample of an application using cloud foundry with a mysql instance bounded. </br></br>
+# Introduction
 
-The program is implementing a Todo List throught a set of rest api </br>
-You can get the collection of Todo to do, you can insert, update or delete a new todo item following this curl commands:</br>
+This application is continuing the experiment done here for Cloud Foundry: </br>
+https://github.com/DanielePalaia/cf-mysql-example
+But in this case we will depoy the application on Kubernetes using mini-kube </br></br>
+The software is using the following technologies: Go, Mysql, Docker, and Kubernetes (minikube). </br>
 
-You can test with curl the various rest api, for instance</br>
+The application is quite simple it's just exposing a set of rest api to manage a todo list </br></br>
+
+## Testing the application locally:
+One built you can try the application locally: </br>
+
+you need to create a mysql database as specified in datastore.sql file</br>
+
+After it you can use curl to test the app </br>
+You can test with curl the various rest api, for instance</br></br>
 
 curl http://localhost:8080/todos</br>
 
-will do get to the collection showing all the collection elements</br>
+will perform a  get to the collection showing all the collection elements</br>
 
 this one will create a new element to the collection</br>
 curl -H "Content-Type: application/json" -d '{"Topic":"New TodoElem", "Completed":0}' -X POST http://localhost:8080/todos</br>
@@ -25,14 +34,28 @@ curl -X DELETE http://localhost/todos/1</br>
 this one will delete all the collection</br>
 curl -X DELETE http://localhost/todos</br>
 
- </br>
  
- **Running the project locally**</br>
- You need an instance of mysql to run. Create a database and the simple table as defined in the file datastore.sql</br> 
- In the file conf specify the dbms parameters (user, password, host, port and database)</br> 
+## Running the app on docker:
+### Create a mysql docker like this: </br>
+docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:5.7 </br>
+### Create database and new user
+Enter inside the docker created and create the datastore as done locally </br>
+docker exec -it some-mysql mysql -uroot -p</br>
+</br>
+After this create a new use and grant privileges on the database just created </br>
+GRANT ALL PRIVILEGES ON *.* TO 'daniele'@'%' IDENTIFIED BY 'daniele' WITH GRANT OPTION; </br>
+Do now a docker inspect some-mysql and get the ip of the docker image 
+### Configure input properties 
+Now collect all this info (username, password and ip and put it in the program configuration file ./conf
+### Run the software in a docker container and link to mysql
+A dockerfile is provided</br>
+sudo  docker build -t web-service-kubernetes .</br>
+docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes </br>
+This will now listen on port 6060 use curl as done before to test it...</br>
+
  
- Run /bin/project</br>  
+## Running on kubernetes (minikube): TODO
+
+
  
- The server will start listening to port 8080 ready to listen to the curl command as specified above</br>
- </br>  
-**Running on Cloud Foundry**</br>
+ 
