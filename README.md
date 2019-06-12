@@ -69,6 +69,9 @@ https://linuxhint.com/install-minikube-ubuntu/</br>
 Follow this guide on how to create a mysql pod and service</br>
 https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
 
+### Create a deployment, pod and a service for the service docker image
+
+
 
 
  
