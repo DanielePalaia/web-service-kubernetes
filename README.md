@@ -66,12 +66,17 @@ Follow this guide to install minikube on ubuntu </br>
 https://linuxhint.com/install-minikube-ubuntu/</br>
 </br>
 Run minikube start and minikube dashboard to run the dashboard </br>
+ ![Screenshot](./images/image1.png)
 
 ### Create a pod and a service for mysql
 Follow this guide on how to create a mysql pod and service</br>
 https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
 
+ ![Screenshot](./images/image2.png)
+
 ### Create a deployment, pod and a service for the service docker image
+
+ ![Screenshot](./images/image3.png)
 
 
 
