@@ -76,6 +76,8 @@ https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-ap
 
 ### Create a deployment, pod and a service for the service docker image
 
+yaml file are provided inside kubernetes-yaml
+
  ![Screenshot](./images/image3.png)
 
 
