@@ -1,5 +1,5 @@
-USERNAME:daniele
-PASSWD:daniele
-HOST:172.17.0.2
+USERNAME:mysql
+PASSWD:password
+HOST:mysql
 DATABASE:tododatastore
 PORT:3306

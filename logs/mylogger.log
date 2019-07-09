@@ -1,27 +1,7 @@
-TodoService service.go:13: 2019-06-04 12:46:12.277011877 +0000 UTC Starting service
+TodoService service.go:13: 2019-06-08 13:50:31.247077083 +0000 UTC Starting service
 TodoService datastore.go:62: retriving all elements from collection
 TodoService datastore.go:37: connecting to the datastore
-TodoService datastore.go:44: 2019-06-04 12:46:14.373783075 +0000 UTC daniele:daniele@tcp(172.17.0.2:3306)/tododatastore
-TodoService datastore.go:50: returning from connecting to the datastore
-TodoService datastore.go:67: before defferring
-TodoService datastore.go:73: after selecting
-TodoService datastore.go:86: ending retriving all elements from collection
-TodoService datastore.go:37: connecting to the datastore
-TodoService datastore.go:44: 2019-06-04 12:48:02.899895772 +0000 UTC daniele:daniele@tcp(172.17.0.2:3306)/tododatastore
-TodoService datastore.go:50: returning from connecting to the datastore
-TodoService datastore.go:62: retriving all elements from collection
-TodoService datastore.go:37: connecting to the datastore
-TodoService datastore.go:44: 2019-06-04 12:48:26.402648023 +0000 UTC daniele:daniele@tcp(172.17.0.2:3306)/tododatastore
-TodoService datastore.go:50: returning from connecting to the datastore
-TodoService datastore.go:67: before defferring
-TodoService datastore.go:73: after selecting
-TodoService datastore.go:86: ending retriving all elements from collection
-TodoService datastore.go:37: connecting to the datastore
-TodoService datastore.go:44: 2019-06-04 12:48:59.519146703 +0000 UTC daniele:daniele@tcp(172.17.0.2:3306)/tododatastore
-TodoService datastore.go:50: returning from connecting to the datastore
-TodoService datastore.go:62: retriving all elements from collection
-TodoService datastore.go:37: connecting to the datastore
-TodoService datastore.go:44: 2019-06-04 12:49:01.839927464 +0000 UTC daniele:daniele@tcp(172.17.0.2:3306)/tododatastore
+TodoService datastore.go:44: 2019-06-08 13:51:26.486752951 +0000 UTC daniele:daniele@tcp(172.17.0.2:3306)/tododatastore
 TodoService datastore.go:50: returning from connecting to the datastore
 TodoService datastore.go:67: before defferring
 TodoService datastore.go:73: after selecting
