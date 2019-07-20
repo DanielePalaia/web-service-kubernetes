@@ -80,7 +80,20 @@ yaml file are provided inside kubernetes-yaml
 
  ![Screenshot](./images/image3.png)
 
-###Useful kubernetes command
+### Useful kubernetes command
+
+1) Getting the shell from a container </br>
+
+kubectl exec -it my-pod -- /bin/bash </br>
+
+with docker instead: </br?
+
+docker ps to take the id of the container
+
+</br>
+docker exec -it docker-id bash
+</br></br?
+
 
 
 
