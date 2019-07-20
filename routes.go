@@ -74,4 +74,11 @@ var routes = Routes{
 		"/todos/{todoId}",
 		engine.DeleteElement,
 	},
+	 Route{
+                "Welcome",
+                "GET",
+                "/",
+                engine.Welcome,
+        },
+
 }

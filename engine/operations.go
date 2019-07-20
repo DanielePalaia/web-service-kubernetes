@@ -12,10 +12,11 @@ import (
 
 // Get all collection
 func GetCollection(w http.ResponseWriter, r *http.Request) {
+	logger := servicelog.GetInstance()
+	logger.Println("Getting collection");
 	// Send the all collection elements
 	todos, err := datastore.GetCollection()
 	if err != nil {
-		logger := servicelog.GetInstance()
 		logger.Println(time.Now().UTC(), "Get Collection failed")
 		// send error
 		utility.EncodeToJsonError(w)
@@ -72,6 +73,11 @@ func CreateElement(w http.ResponseWriter, r *http.Request) {
 	}
 	// Send created with new resource id
 	utility.EncodeToJson(w, r, id)
+}
+
+func Welcome(w http.ResponseWriter, r *http.Request)  {
+
+	utility.EncodeToJson(w, r, 0)
 }
 
 // Update an element
