@@ -41,7 +41,7 @@ After it you can use curl to test the app </br>
 You can test with curl the various rest api described before</br></br>
 
  
-## Running the app on docker:
+## Running the app on docker containers only:
 ### 1. Create a mysql docker like this: </br>
 Docker file is already provided you can just: </br>
 docker build -t web-service-kubernetes . </br>
