@@ -1,7 +1,7 @@
 # Introduction
 
 This application is continuing the experiment done here for Cloud Foundry: </br>
-https://github.com/DanielePalaia/cf-mysql-example
+https://github.com/DanielePalaia/cf-mysql-example </br>
 But in this case we will depoy the application on Kubernetes using mini-kube </br></br>
 The software is using the following technologies: Go, Mysql, Docker, and Kubernetes (minikube). </br>
 
