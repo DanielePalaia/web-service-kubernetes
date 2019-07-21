@@ -105,7 +105,7 @@ This will prompt you inside the mysql server where you can create database and t
 
  ![Screenshot](./images/image1.png)
 
-### 4. Create a pod for this serviec web-service-kubernetes
+### 4. Create a pod for this service web-service-kubernetes
 I usually the minikube dashboard, you can go to new and specify as image danielepalaia/web-service-kubernetes
 
 ### 5. Forward the port from pod locally
