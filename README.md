@@ -20,7 +20,11 @@ CREATE TABLE ToDo (
 );
 ```
 
-The software exposes these rest api (GET, POST, PUT, DELETE) which can be tested with curl
+The software exposes these rest api (GET, POST, PUT, DELETE) which can be tested with curl.</br>
+Use GET to get all todo items inside the collection </br>
+Use POST to create a new item for the Todo Collection </br>
+Use PUT for update and DELETE for deletion </br>
+
 ```
 curl http://localhost:8080/todos
 curl -H "Content-Type: application/json" -d '{"Topic":"New TodoElem", "Completed":0}' -X POST http://localhost:8080/todos
