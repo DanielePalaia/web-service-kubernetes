@@ -66,7 +66,7 @@ Now collect all this info (username, password and ip and put it in the program c
 ### 4. Run the software in a docker container and link to mysql
 A dockerfile is provided</br>
 ```
-sudo  docker build -t web-service-kubernetes 
+sudo  docker build -t web-service-kubernetes .
 docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes
 ```
 This will now listen on port 6060 use curl as done before to test it...</br>
