@@ -49,7 +49,6 @@ You can test with curl the various rest api described before</br>
 ### 1. Create a mysql docker like this: </br>
 Docker file is already provided you can just: </br>
 ```
-docker build -t web-service-kubernetes 
 docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:5.7
 ```
 ### 2. Create database and new user
