@@ -1,4 +1,4 @@
-USERNAME:mysql
+USERNAME:root
 PASSWD:password
 HOST:mysql
 DATABASE:tododatastore
