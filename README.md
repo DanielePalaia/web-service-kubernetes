@@ -100,7 +100,6 @@ you can kubectl --apply to the volume first and then to the service </br>
 kubectl apply -f ./mysql-pv.yaml
 kubectl apply -f ./mysql-deployment.yaml
 ```
-![Screenshot](./images/image1.png)
 
 The first one will create a volume while the second one will create a deployment, a pod and a service for mysql.
 
@@ -117,6 +116,8 @@ This will prompt you inside the mysql server where you can create database and t
 
 ### 5. Create a pod for this service web-service-kubernetes
 I usually the minikube dashboard, you can go to new and specify as image danielepalaia/web-service-kubernetes
+
+![Screenshot](./images/image1.png)
 
 ### 6. Forward the port from pod locally
 Apparently minikube doesn't support services of type LoadBalancer... so we must just use one pod forwarding the port.
