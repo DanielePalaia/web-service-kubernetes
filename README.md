@@ -42,35 +42,35 @@ You can test with curl the various rest api described before</br></br>
 
  
 ## Running the app on docker:
-### Create a mysql docker like this: </br>
+### 1. Create a mysql docker like this: </br>
 Docker file is already provided you can just: </br>
 docker build -t web-service-kubernetes . </br>
 docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:5.7 </br>
-### Create database and new user
+### 2. Create database and new user
 Enter inside the docker created and create the datastore as done locally </br>
 docker exec -it some-mysql mysql -uroot -p</br>
 </br>
 After this create a new use and grant privileges on the database just created </br>
 GRANT ALL PRIVILEGES ON *.* TO 'daniele'@'%' IDENTIFIED BY 'daniele' WITH GRANT OPTION; </br>
 Do now a docker inspect some-mysql and get the ip of the docker image 
-### Configure input properties 
+### 3. Configure input properties 
 Now collect all this info (username, password and ip and put it in the program configuration file ./conf
-### Run the software in a docker container and link to mysql
+### 4. Run the software in a docker container and link to mysql
 A dockerfile is provided</br>
 sudo  docker build -t web-service-kubernetes .</br>
 docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes </br>
 This will now listen on port 6060 use curl as done before to test it...</br>
-### Test the rest api as before
+### 5. Test the rest api as before
 
  
 ## Running on kubernetes (minikube)
 
-### Putting the docker image on dockerhub
+### 1. Putting the docker image on dockerhub
 I already created a dockerhub repository. In my case will be:</br>
 https://cloud.docker.com/repository/registry-1.docker.io/danielepalaia/web-service-kubernetes
 docker push danielepalaia/go-list:tagname</br>
 
-### Install minikube
+### 2. Install minikube
 Minikube allows you to have and manage a local kubernetes cluster </br>
 Follow this guide to install minikube on ubuntu </br>
 https://linuxhint.com/install-minikube-ubuntu/</br>
@@ -78,21 +78,21 @@ https://linuxhint.com/install-minikube-ubuntu/</br>
 Run minikube start and minikube dashboard to run the dashboard </br>
  ![Screenshot](./images/image1.png)
 
-### Create a pod and a service for mysql
+### 3. Create a pod and a service for mysql
 Follow this guide on how to create a mysql pod and service</br>
 https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
 
  ![Screenshot](./images/image2.png)
 
-### Create a pod for this serviec web-service-kubernetes
+### 4. Create a pod for this serviec web-service-kubernetes
 I usually the minikube dashboard, you can go to new and specify as image danielepalaia/web-service-kubernetes
 
-### Forward the port from pod locally
+### 5. Forward the port from pod locally
 kubectl port-forward pod-name 8080:8080
 
-### You can then use the rest api as before from your localhost
+### 6. You can then use the rest api as before from your localhost
 
-### Useful kubernetes command
+## Useful kubernetes command
 
 1) Getting the shell from a container </br>
 
