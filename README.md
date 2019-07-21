@@ -21,24 +21,14 @@ CREATE TABLE ToDo (
 ```
 
 The software exposes these rest api which can be tested with curl
-
+```
 curl http://localhost:8080/todos
-will get to the collection showing all the collection elements
-
-this one will create a new element to the collection
 curl -H "Content-Type: application/json" -d '{"Topic":"New TodoElem", "Completed":0}' -X POST http://localhost:8080/todos
-
-this one will get an element:
 curl http://localhost:8080/todos/1
-
-this one will update an existing element of the collection
 curl -H "Content-Type: application/json" -d '{"Id":0,"name":"New TodoElem Updated"}' -X PUT http://localhost:8080/todos
-
-this one will delete a resource
 curl -X DELETE http://localhost/todos/1
-
-this one will delete all the collection
 curl -X DELETE http://localhost/todos
+```
 
 ## Testing the application locally:
 Once built you can try the application locally: </br>
