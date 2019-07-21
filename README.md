@@ -48,21 +48,29 @@ You can test with curl the various rest api described before</br>
 ## Running the app on docker containers only
 ### 1. Create a mysql docker like this: </br>
 Docker file is already provided you can just: </br>
-docker build -t web-service-kubernetes . </br>
-docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:5.7 </br>
+```
+docker build -t web-service-kubernetes 
+docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:5.7
+```
 ### 2. Create database and new user
 Enter inside the docker created and create the datastore as done locally </br>
-docker exec -it some-mysql mysql -uroot -p</br>
+```
+docker exec -it some-mysql mysql -uroot -p
+```
 </br>
 After this create a new use and grant privileges on the database just created </br>
+```
 GRANT ALL PRIVILEGES ON *.* TO 'daniele'@'%' IDENTIFIED BY 'daniele' WITH GRANT OPTION; </br>
+```
 Do now a docker inspect some-mysql and get the ip of the docker image 
 ### 3. Configure input properties 
 Now collect all this info (username, password and ip and put it in the program configuration file ./conf
 ### 4. Run the software in a docker container and link to mysql
 A dockerfile is provided</br>
-sudo  docker build -t web-service-kubernetes .</br>
-docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes </br>
+```
+sudo  docker build -t web-service-kubernetes 
+docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes
+```
 This will now listen on port 6060 use curl as done before to test it...</br>
 ### 5. Test the rest api as before
 
@@ -99,7 +107,9 @@ The first one will create a volume while the second one will create a deployment
 ### 4. Go inside mysql and create database and table as for datastore.sql
 To do this you can create a mysql client to connect to the server </br>
 
+```
 kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -ppassword
+```
 
 This will prompt you inside the mysql server where you can create database and table.
 
