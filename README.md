@@ -33,17 +33,6 @@ curl -H "Content-Type: application/json" -d '{"Id":0,"name":"New TodoElem Update
 curl -X DELETE http://localhost/todos/1
 curl -X DELETE http://localhost/todos
 ```
-
-## Testing the application locally
-Once built you can try the application locally: </br>
-
-you need to create a mysql database as specified in datastore.sql file</br>
-
-Then you can simply run the binary web-service-kubernetes
-
-After it you can use curl to test the app </br>
-You can test with curl the various rest api described before</br>
-
  
 ## Running the app on docker containers only
 ### 1. Create a mysql docker like this: </br>
