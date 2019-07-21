@@ -126,7 +126,7 @@ docker ps to take the id of the container
 
 </br>
 docker exec -it docker-id bash
-</br></br?
+</br>
 
 ## Automation with Ansible
 ToDo: start playing some automation with ansible...
