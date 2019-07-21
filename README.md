@@ -68,7 +68,7 @@ This will now listen on port 6060 use curl as done before to test it...</br>
 ### 1. Putting the docker image on dockerhub
 I already created a dockerhub repository. In my case will be:</br>
 https://cloud.docker.com/repository/registry-1.docker.io/danielepalaia/web-service-kubernetes
-docker push danielepalaia/go-list:tagname</br>
+docker push danielepalaia/web-service-kubernetes</br>
 
 ### 2. Install minikube
 Minikube allows you to have and manage a local kubernetes cluster </br>
@@ -81,6 +81,23 @@ Run minikube start and minikube dashboard to run the dashboard </br>
 ### 3. Create a pod and a service for mysql
 Follow this guide on how to create a mysql pod and service</br>
 https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
+Basically we need to create a Volume for mysql and a service for mysql. </br>
+I put .yaml file in kubernetes-yaml folder. </br>
+you can kubectl --apply to the volume first and then to the service </br>
+
+```
+kubectl apply -f ./mysql-pv.yaml
+kubectl apply -f ./mysql-deployment.yaml
+```
+
+The first one will create a volume while the second one will create a deployment, a pod and a service for mysql.
+
+### 4. Go inside mysql and create database and table as for datastore.sql
+To do this you can create a mysql client to connect to the server </br>
+
+kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -ppassword
+
+This will prompt you inside the mysql server where you can create database and table.
 
  ![Screenshot](./images/image1.png)
 
