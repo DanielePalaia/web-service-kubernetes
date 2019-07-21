@@ -65,10 +65,12 @@ Do now a docker inspect some-mysql and get the ip of the docker image
 Now collect all this info (username, password and ip and put it in the program configuration file ./conf
 ### 4. Run the software in a docker container and link to mysql
 A dockerfile is provided</br>
+
 ```
 sudo  docker build -t web-service-kubernetes .
 docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes
 ```
+
 This will now listen on port 6060 use curl as done before to test it...</br>
 ### 5. Test the rest api as before
 
