@@ -59,9 +59,7 @@ docker exec -it some-mysql mysql -uroot -p
 ```
 </br>
 After this create a new use and grant privileges on the database just created </br>
-```
-GRANT ALL PRIVILEGES ON *.* TO 'daniele'@'%' IDENTIFIED BY 'daniele' WITH GRANT OPTION;
-```
+GRANT ALL PRIVILEGES ON *.* TO 'daniele'@'%' IDENTIFIED BY 'daniele' WITH GRANT OPTION;</br>
 Do now a docker inspect some-mysql and get the ip of the docker image 
 ### 3. Configure input properties 
 Now collect all this info (username, password and ip and put it in the program configuration file ./conf
