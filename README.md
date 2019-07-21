@@ -82,7 +82,7 @@ https://linuxhint.com/install-minikube-ubuntu/</br>
 Run minikube start and minikube dashboard to run the dashboard </br>
  ![Screenshot](./images/image2.png)
 
-### 3. Create a pod and a service for mysql
+### 3. Create a volume, a pod and a service for mysql
 Follow this guide on how to create a mysql pod and service</br>
 https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
 Basically we need to create a Volume for mysql and a service for mysql. </br>
