@@ -1,38 +1,54 @@
 # Introduction
 
-This application is continuing the experiment done here for Cloud Foundry: </br>
+Scope of this software is just to play around with Kubernetes (Minikube). </br>
+This software is exposing a set of rest-api to manage a collection of ToDo operations and is accessing mysql to store and read Todos. </br>
+We will see how this app can be deployed locally, using just Docker containers to link one container to another or using kubernetes, minikube in this case. </br>
+In the past I also used this app deployed on Pivotal CF.
 https://github.com/DanielePalaia/cf-mysql-example </br>
-But in this case we will depoy the application on Kubernetes using mini-kube </br></br>
-The software is using the following technologies: Go, Mysql, Docker, and Kubernetes (minikube). </br>
 
-The application is quite simple it's just exposing a set of rest api to manage a todo list </br></br>
+## Datastore and rest api
+
+The todos operations are saved in a mysql datastore defined in datastore.sql
+
+```
+CREATE TABLE ToDo (
+	    ID int NOT NULL AUTO_INCREMENT,
+	    Topic varchar(255),
+	    Completed int,
+	    Due varchar(255) DEFAULT '',
+	    PRIMARY KEY (ID)
+);
+```
+
+The software exposes these rest api which can be tested with curl
+
+curl http://localhost:8080/todos
+will get to the collection showing all the collection elements
+
+this one will create a new element to the collection
+curl -H "Content-Type: application/json" -d '{"Topic":"New TodoElem", "Completed":0}' -X POST http://localhost:8080/todos
+
+this one will get an element:
+curl http://localhost:8080/todos/1
+
+this one will update an existing element of the collection
+curl -H "Content-Type: application/json" -d '{"Id":0,"name":"New TodoElem Updated"}' -X PUT http://localhost:8080/todos
+
+this one will delete a resource
+curl -X DELETE http://localhost/todos/1
+
+this one will delete all the collection
+curl -X DELETE http://localhost/todos
 
 ## Testing the application locally:
-One built you can try the application locally: </br>
+Once built you can try the application locally: </br>
 
 you need to create a mysql database as specified in datastore.sql file</br>
 
+Then you can simply run the binary web-service-kubernetes
+
 After it you can use curl to test the app </br>
-You can test with curl the various rest api, for instance</br></br>
-
-curl http://localhost:8080/todos</br>
-
-will perform a  get to the collection showing all the collection elements</br>
-
-this one will create a new element to the collection</br>
-curl -H "Content-Type: application/json" -d '{"Topic":"New TodoElem", "Completed":0}' -X POST http://localhost:8080/todos</br>
-
-this one will get an element:</br>
-curl http://localhost:8080/todos/1</br>
-
-this one will update an existing element of the collection</br>
-curl -H "Content-Type: application/json" -d '{"Id":0,"name":"New TodoElem Updated"}' -X PUT http://localhost:8080/todos</br>
-
-this one will delete a resource</br>
-curl -X DELETE http://localhost/todos/1</br>
-
-this one will delete all the collection</br>
-curl -X DELETE http://localhost/todos</br>
+You can test with curl the various rest api described before</br></br>
 
  
 ## Running the app on docker:
@@ -52,12 +68,14 @@ A dockerfile is provided</br>
 sudo  docker build -t web-service-kubernetes .</br>
 docker run --publish 6060:8080 --name test --link some-mysql:mysql --rm web-service-kubernetes </br>
 This will now listen on port 6060 use curl as done before to test it...</br>
+### Test the rest api as before
 
  
-## Running on kubernetes (minikube): TODO
+## Running on kubernetes (minikube)
 
 ### Putting the docker image on dockerhub
 I already created a dockerhub repository. In my case will be:</br>
+https://cloud.docker.com/repository/registry-1.docker.io/danielepalaia/web-service-kubernetes
 docker push danielepalaia/go-list:tagname</br>
 
 ### Install minikube
@@ -74,11 +92,13 @@ https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-ap
 
  ![Screenshot](./images/image2.png)
 
-### Create a deployment, pod and a service for the service docker image
+### Create a pod for this serviec web-service-kubernetes
+I usually the minikube dashboard, you can go to new and specify as image danielepalaia/web-service-kubernetes
 
-yaml file are provided inside kubernetes-yaml
+### Forward the port from pod locally
+kubectl port-forward pod-name 8080:8080
 
- ![Screenshot](./images/image3.png)
+### You can then use the rest api as before from your localhost
 
 ### Useful kubernetes command
 
