@@ -120,7 +120,7 @@ kubectl port-forward pod-name 8080:8080
 
 kubectl exec -it my-pod -- /bin/bash </br>
 
-with docker instead: </br?
+with docker instead: 
 
 docker ps to take the id of the container
 
