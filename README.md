@@ -34,7 +34,7 @@ curl -X DELETE http://localhost/todos/1
 curl -X DELETE http://localhost/todos
 ```
 
-## Testing the application locally:
+## Testing the application locally
 Once built you can try the application locally: </br>
 
 you need to create a mysql database as specified in datastore.sql file</br>
@@ -45,7 +45,7 @@ After it you can use curl to test the app </br>
 You can test with curl the various rest api described before</br></br>
 
  
-## Running the app on docker containers only:
+## Running the app on docker containers only
 ### 1. Create a mysql docker like this: </br>
 Docker file is already provided you can just: </br>
 docker build -t web-service-kubernetes . </br>
@@ -105,13 +105,14 @@ This will prompt you inside the mysql server where you can create database and t
 
  ![Screenshot](./images/image1.png)
 
-### 4. Create a pod for this service web-service-kubernetes
+### 5. Create a pod for this service web-service-kubernetes
 I usually the minikube dashboard, you can go to new and specify as image danielepalaia/web-service-kubernetes
 
-### 5. Forward the port from pod locally
+### 6. Forward the port from pod locally
+Apparently minikube doesn't support services of type LoadBalancer... so we must just use one pod forwarding the port.
 kubectl port-forward pod-name 8080:8080
 
-### 6. You can then use the rest api as before from your localhost
+### 7. You can then use the rest api as before from your localhost
 
 ## Useful kubernetes command
 
