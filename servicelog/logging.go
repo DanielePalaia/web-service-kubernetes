@@ -17,7 +17,7 @@ var once sync.Once
 // start loggeando
 func GetInstance() *Logger {
 	once.Do(func() {
-		logger = createLogger("./mylogger.log")
+		logger = createLogger("/go/bin/web-service-kubernetes/mylogger.log")
 	})
 	return logger
 }
