@@ -3,7 +3,7 @@
 Scope of this software is just to play around with Kubernetes (Minikube). </br>
 This software is exposing a set of rest-api to manage a collection of ToDo operations and is accessing mysql to store and read Todos. </br>
 We will see how this app can be deployed locally, using just Docker containers to link one container to another or using kubernetes, minikube in this case. </br>
-In the past I also used this app deployed on Pivotal CF.
+In the past I also used this app deployed on Pivotal CF. </br>
 https://github.com/DanielePalaia/cf-mysql-example </br>
 
 ## Datastore and rest api
